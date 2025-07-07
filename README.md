@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+---
 
-First, run the development server:
+```md
+# 🧠 AI Agent Directory (Challenge Submission)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This is a minimal AI Agent Directory built using **Next.js App Router**, **TypeScript**, **Tailwind CSS**, and **Redux Toolkit**.  
+It allows users to **browse, search, and filter** AI Agents based on various criteria such as category, status, and pricing model.
+
+---
+
+## 🚀 Features
+
+- ✅ Browse all AI Agents in a responsive grid
+- ✅ Minimal card design with hover animation
+- ✅ Search by name or description
+- ✅ Filter by:
+  - Status (Active / Beta / Archived)
+  - Category (Customer Service, Development, Marketing, etc.)
+  - Pricing Model (Free Tier, Subscription, Per-Use)
+- ✅ Redux store for global state
+- ✅ UI polish with Framer Motion animation
+- ✅ Category-based background gradients
+- ✅ Deployed on Vercel
+
+---
+
+## 🧰 Tech Stack
+
+- [Next.js 14+ (App Router)](https://nextjs.org/docs/app)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Framer Motion](https://www.framer.com/motion/) (for animations)
+- [Vercel](https://vercel.com/) for deployment
+
+---
+
+## 📁 Project Structure
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+/app
+/agents
+page.tsx           // Main agent listing page
+/components
+AgentCard.tsx      // UI for agent card
+FilterBar.tsx      // Filter and search
+layout.tsx
+page.tsx
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+/redux
+agentSlice.ts        // Redux slice for agents
+store.ts             // Redux store setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+/data
+mock-agents.ts       // Static mock data for agents
 
-## Learn More
+````
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧪 How to Run Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+git clone https://github.com/jubayer718/arklab-ai-agents
+cd arklab-ai-agents
+npm install
+npm run dev
+````
 
-## Deploy on Vercel
+Then open [http://localhost:3000](http://localhost:3000)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌐 Live Demo
+
+[👉 Live Site](https://arklab-ai-agents-eta.vercel.app/agents)
+
+---
+
+## 💡 Challenge Completion Checklist
+
+| Feature                         | Status      |
+| ------------------------------- | ----------- |
+| Agent list from mock data       | ✅ Completed |
+| Redux setup                     | ✅ Completed |
+| Search UX                       | ✅ Completed |
+| Status/category/pricing filters | ✅ Completed |
+| Agent card design               | ✅ Completed |
+| UI polish & animation           | ✅ Completed |
+| Responsive layout               | ✅ Completed |
+| README.md                       | ✅ Completed |
+| Deployed to Vercel              | ✅ Completed |
+
+---
+
+## 🙌 Author
+
+Made with ❤️ by [Jubayer](https://github.com/jubayer718)
+
+````
+
+---
+
+
+- `jubayer718`
+- `https://arklab-ai-agents-eta.vercel.app/agents`
+- `Jubayer Ahmed` 
+
+---
+   ```bash
+   git add README.md
+   git commit -m "Add README with challenge details"
+   git push
+````
+
+
