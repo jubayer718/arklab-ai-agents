@@ -16,7 +16,6 @@ export default async function AgentsPage() {
   const jsonData = await fs.readFile(filePath, 'utf-8')
   const agents = JSON.parse(jsonData);
 
-  console.log(agents);
 
   return (
     <main className="max-w-6xl mx-auto p-4">
