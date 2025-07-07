@@ -1,9 +1,8 @@
-// import { promises as fs } from 'fs'
-// import path from 'path'
+
 import AgentList from '@/app/components/AgentList/AgentList'
-import mockAgents from '../../../data/mock-agents.json'
-// import { store } from '@/lib/store/store'
-// import { setAgents } from '@/redux/agentSlice'
+import mockAgents from '../../../data/mock-agents.json';
+// import { redirect } from 'next/navigation';
+// import { auth } from '@/lib/auth';
 
 import { Metadata } from 'next'
 
@@ -13,14 +12,12 @@ export const metadata: Metadata = {
 }
 
 export default async function AgentsPage() {
+  // const session = await auth();
+  // if (!session) {
+  //   redirect('/');
+  // }
   // Delay to simulate network
   await new Promise((resolve) => setTimeout(resolve, 1000))
-
-
-  // const filePath = path.join(process.cwd(), 'data', 'mock-agents.json')
-  // const jsonData = await fs.readFile(filePath, 'utf-8')
-  // const agents = JSON.parse(jsonData);
-
 
   return (
     <main className="max-w-6xl mx-auto p-4">
