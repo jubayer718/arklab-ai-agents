@@ -14,6 +14,32 @@ interface Agent {
   pricingModel: string
 }
 
+
+
+const categoryBackgrounds: Record<string, string> = {
+  'Customer Service': 'bg-gradient-to-br from-teal-50 to-white',
+  'Marketing': 'bg-gradient-to-br from-pink-50 to-white',
+  'Development': 'bg-gradient-to-br from-blue-50 to-white',
+  'Data Analysis': 'bg-gradient-to-br from-yellow-50 to-white',
+  'Human Resources': 'bg-gradient-to-br from-purple-50 to-white',
+  'Finance': 'bg-gradient-to-br from-emerald-50 to-white',
+  'Legal': 'bg-gradient-to-br from-slate-50 to-white',
+  'Operations': 'bg-gradient-to-br from-indigo-50 to-white',
+};
+
+
+const categoryHoverBackgrounds: Record<string, string> = {
+  'Customer Service': 'hover:from-teal-100',
+  'Marketing': 'hover:from-pink-100',
+  'Development': 'hover:from-blue-100',
+  'Data Analysis': 'hover:from-yellow-100',
+  'Human Resources': 'hover:from-purple-100',
+  'Finance': 'hover:from-emerald-100',
+  'Legal': 'hover:from-slate-100',
+  'Operations': 'hover:from-indigo-100',
+};
+
+
 const statusColor = {
   Active: 'bg-green-100 text-green-800',
   Beta: 'bg-yellow-100 text-yellow-800',
@@ -28,7 +54,9 @@ export default function AgentCard({ agent }: { agent: Agent }) {
       transition={{ duration: 0.3, ease: easeInOut }}
       whileHover={{scale:1.03}}
     >
-      <Card className="border rounded-2xl h-full hover:shadow-md transition-shadow cursor-pointer  bg-gradient-to-br from-[#d3d8dc] to-[#ebdc7d]">
+      <Card className={cn('border rounded-2xl h-full hover:shadow-md transition-shadow cursor-pointer', categoryBackgrounds[agent.category] || 'bg-white',
+        categoryHoverBackgrounds[agent.category] || ''
+      )}>
         <CardContent className=" flex flex-col  flex-1 p-4  space-y-4">
           {/* Top Section: Name + Status */}
           <div className="flex justify-between items-start">
