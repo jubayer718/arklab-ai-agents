@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/app/components/ui/card'
 import { easeInOut, motion } from 'framer-motion'
 import { Bot, DollarSign } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useState } from 'react'
 
 interface Agent {
   id: string
@@ -47,12 +48,14 @@ const statusColor = {
 }
 
 export default function AgentCard({ agent }: { agent: Agent }) {
+
+  const [expanded, setExpanded] = useState(false);
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.80 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3, ease: easeInOut }}
-      whileHover={{scale:1.03}}
+      whileHover={{ scale: 1.03 }}
     >
       <Card className={cn('border rounded-2xl h-full hover:shadow-md transition-shadow cursor-pointer', categoryBackgrounds[agent.category] || 'bg-white',
         categoryHoverBackgrounds[agent.category] || ''
@@ -65,7 +68,20 @@ export default function AgentCard({ agent }: { agent: Agent }) {
                 {agent.name}
               </h2>
               <p className="text-sm text-muted-foreground">
-                {agent.description}
+                {expanded
+                  ? agent.description
+                  : agent.description.slice(0, 80) }
+                {agent.description.length > 80 && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation(); // prevent card click if needed
+                      setExpanded(!expanded);
+                    }}
+                    className="text-primary ml-2 "
+                  >
+                    {expanded ? 'Show Less' : '...Read More'}
+                  </button>
+                )}
               </p>
             </div>
             <span
