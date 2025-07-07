@@ -1,7 +1,10 @@
 'use client'
-import { BadgeCheck, Bot, DollarSign } from "lucide-react"
-import { Card, CardContent } from "./ui/card"
-import { easeInOut, motion} from 'framer-motion'
+
+import { Card, CardContent } from '@/app/components/ui/card'
+import { easeInOut, motion } from 'framer-motion'
+import { Bot, DollarSign } from 'lucide-react'
+import { cn } from '@/lib/utils'
+
 interface Agent {
   id: string
   name: string
@@ -10,31 +13,59 @@ interface Agent {
   category: string
   pricingModel: string
 }
-const AgentCard = ({ agent }: { agent: Agent }) => {
+
+const statusColor = {
+  Active: 'bg-green-100 text-green-800',
+  Beta: 'bg-yellow-100 text-yellow-800',
+  Archived: 'bg-gray-200 text-gray-600',
+}
+
+export default function AgentCard({ agent }: { agent: Agent }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.50 }}
+      initial={{ opacity: 0, scale: 0.80 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1, ease: easeInOut }}
-    
+      transition={{ duration: 0.3, ease: easeInOut }}
+      whileHover={{scale:1.03}}
     >
-      <Card className="hover:shadow-md transition-shadow hover:scale-105 cursor-pointer">
-
-        <CardContent className="px-4 py-3 ">
-
-          <h2 className="text-xl font-semibold">{agent.name}  </h2>
-          <p className="text-sm text-gray-500 mb-2">{agent.description}</p>
-          <div className="text-sm space-y-1">
-            <p className="flex items-center gap-2"><BadgeCheck className="w-4 h-4" /> {agent.status}</p>
-            <p className="flex items-center gap-2"><Bot className="w-4 h-4" /> {agent.category}</p>
-            <p className="flex items-center gap-2"><DollarSign className="w-4 h-4"/> {agent.pricingModel}</p>
+      <Card className="border rounded-2xl h-full hover:shadow-md transition-shadow cursor-pointer  bg-gradient-to-br from-[#d3d8dc] to-[#ebdc7d]">
+        <CardContent className=" flex flex-col  flex-1 p-4  space-y-4">
+          {/* Top Section: Name + Status */}
+          <div className="flex justify-between items-start">
+            <div>
+              <h2 className="text-lg font-semibold leading-snug ">
+                {agent.name}
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                {agent.description}
+              </p>
+            </div>
+            <span
+              className={cn(
+                'text-xs font-medium px-2 py-0.5 rounded-full',
+                statusColor[agent.status as keyof typeof statusColor]
+              )}
+            >
+              {agent.status}
+            </span>
           </div>
 
-        </CardContent>
+          {/* Divider */}
+          <hr className="my-2 border-muted" />
 
+          {/* Bottom Section: Category + Pricing */}
+          <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Bot className="w-4 h-4" />
+              {agent.category}
+            </div>
+            <div className="flex items-center gap-2">
+              <DollarSign className="w-4 h-4" />
+              {agent.pricingModel}
+            </div>
+          </div>
+        </CardContent>
       </Card>
     </motion.div>
-  );
-};
-
-export default AgentCard;
+  )
+}
