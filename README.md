@@ -75,7 +75,7 @@ Then open [http://localhost:3000](http://localhost:3000)
 
 ## 🌐 Live Demo
 
-[👉 Live Site](https://arklab-ai-agents-eta.vercel.app/agents)
+[👉 Live Site](https://arklab-ai-agents-eta.vercel.app/)
 
 ---
 
@@ -105,7 +105,7 @@ Made with ❤️ by [Jubayer](https://github.com/jubayer718)
 
 
 - `jubayer718`
-- `https://arklab-ai-agents-eta.vercel.app/agents`
+- `https://arklab-ai-agents-eta.vercel.app/`
 - `Jubayer Ahmed` 
 
 ---
